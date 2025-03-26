@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Case Navigator is designed to help support agents quickly find, track, and manage cases with ease. Whether it’s their assigned cases or customer-specific cases, Case Navigator ensures they have all the information at their fingertips.</description>
+    <label>Case Navigator</label>
+    <lwcComponent>caseDashboardLwc</lwcComponent>
+    <motif>Custom57: Building Block</motif>
+</CustomTab>

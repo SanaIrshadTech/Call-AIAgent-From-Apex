@@ -1,0 +1,17 @@
+{
+  "required" : [ "contactRecord" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "contactRecord" : {
+      "title" : "contactRecord",
+      "description" : "The contact record for a customer used to look up related case records.",
+      "lightning:type" : "lightning__recordInfoType",
+      "lightning:sObjectInfo" : {
+        "apiName" : "Contact"
+      },
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0B5478</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>The Support Lens app gives service reps a clear, consolidated view of customer cases, helping them make faster, smarter decisions. It highlights key insights, enabling agents to achieve quick and efficient resolutions.</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <label>Support Lens</label>
+    <navType>Console</navType>
+    <tabs>Case_Navigator</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Support_Lens_UtilityBar</utilityBar>
+    <workspaceConfig>
+        <mappings>
+            <tab>Case_Navigator</tab>
+        </mappings>
+    </workspaceConfig>
+</CustomApplication>

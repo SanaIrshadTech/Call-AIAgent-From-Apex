@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>63.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <description>This will store total case count the agent has to work on current day as well as the agent name.</description>
+        <name>Assign_Data_To_Get_In_Agent</name>
+        <label>Assign Data To Get In Agent</label>
+        <locationX>176</locationX>
+        <locationY>242</locationY>
+        <assignmentItems>
+            <assignToReference>caseCount</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>Get_Case_Count</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>agentName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$User.FirstName</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <description>Returns the total case count as well as agent name.</description>
+    <environments>Default</environments>
+    <interviewLabel>Get Total Case Count {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Get Total Case Count</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>This will provide the case count related to specific owner.</description>
+        <name>Get_Case_Count</name>
+        <label>Get Case Count</label>
+        <locationX>176</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Data_To_Get_In_Agent</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>OwnerId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>ownerId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Closed</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Case</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Case_Count</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>This will store the agent name.</description>
+        <name>agentName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>This variable will store the total case count.</description>
+        <name>caseCount</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <scale>0</scale>
+    </variables>
+    <variables>
+        <description>This will receive the owner Id value.</description>
+        <name>ownerId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

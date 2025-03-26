@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aiPluginUtterances>
+        <developerName>utterance_generatewa0</developerName>
+        <language>en_US</language>
+        <masterLabel>utterance_generatewa0</masterLabel>
+        <utterance>Generate warm welcome message with case count t work on current day for agent.</utterance>
+    </aiPluginUtterances>
+    <canEscalate>false</canEscalate>
+    <description>Provide a warm welcome message to the agent and inform them about the number of cases to work on for the current day. Starts with Greeting and two motivation line.</description>
+    <developerName>Daily_Welcome_and_Case_Count</developerName>
+    <genAiFunctions>
+        <functionName>Get_Case_Count_and_Agent_Detail</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>Greet the agent with a warm and motivating welcome message.</description>
+        <developerName>instruction_greettheag0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_greettheag0</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Inform the agent about the number of cases they need to work on for the current day.</description>
+        <developerName>instruction_informthea1</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_informthea1</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Do not include any other details or perform any other actions outside of greeting and case count.</description>
+        <developerName>instruction_donotinclu2</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_donotinclu2</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Please write at least three lines in the welcome message.</description>
+        <developerName>instruction_pleasewrit3</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_pleasewrit3</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Please check the sample instruction and generate similar one: 
+
+Good [morning/afternoon/evening], [Agent Name]! 🌟
+Hope you&apos;re having a great start to your day! You have [Case Count] case(s) lined up for today. Let’s make a difference—one case at a time! Remember, your expertise and dedication keep our customers happy.
+
+Wishing you a productive and smooth day ahead! 😊</description>
+        <developerName>instruction_pleasechec4</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_pleasechec4</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Daily Welcome and Case Count</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is to greet the agent with a motivating welcome message and provide the count of cases assigned for the current day. Do not perform any other actions or provide additional information.</scope>
+</GenAiPlugin>

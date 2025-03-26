@@ -1,0 +1,20 @@
+:host {
+    --slds-c-accordion-heading-text-color: darkblue;
+    --slds-c-accordion-heading-font-size: 1rem;
+    --slds-c-accordion-heading-font-weight: bold;
+}
+
+.layoutCSS {
+    background-color: lightblue;
+}
+
+.layoutItemCSS {
+    font-size: small;
+    font-family: calibri;
+}
+
+.welcomeMessageCSS {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-style: italic;
+}

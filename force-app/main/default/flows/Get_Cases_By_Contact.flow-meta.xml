@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>61.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <description>Determines whether the customer has an associated Contact record.</description>
+        <name>DoesContactExist</name>
+        <label>Contact Exists?</label>
+        <locationX>182</locationX>
+        <locationY>134</locationY>
+        <defaultConnectorLabel>No (Default)</defaultConnectorLabel>
+        <rules>
+            <name>ContactExists</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>contactRecord</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>GetContactRelatedCases</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <description>Returns a list of open or escalated cases related to a given Contact record.</description>
+    <environments>Default</environments>
+    <interviewLabel>Get All Cases For Contact {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Get Cases By Contact</label>
+    <overriddenFlow>SvcCopilotTmpl__GetCasesForContact</overriddenFlow>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Gets all case records related to the current contact. Stores the results in the caseList collection.</description>
+        <name>GetContactRelatedCases</name>
+        <label>Get Related Cases</label>
+        <locationX>50</locationX>
+        <locationY>242</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <filterLogic>1 AND (2 OR 3)</filterLogic>
+        <filters>
+            <field>ContactId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>contactRecord.Id</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>New</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Escalated</stringValue>
+            </value>
+        </filters>
+        <object>Case</object>
+        <outputReference>caseList</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Subject</queriedFields>
+        <queriedFields>Description</queriedFields>
+        <queriedFields>Status</queriedFields>
+        <queriedFields>CreatedDate</queriedFields>
+        <queriedFields>CaseNumber</queriedFields>
+        <queriedFields>LastModifiedDate</queriedFields>
+        <queriedFields>ClosedDate</queriedFields>
+        <queriedFields>Priority</queriedFields>
+    </recordLookups>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>DoesContactExist</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Stores the ID, Subject, Description, Status, CreatedDate, CaseNumber, LastModifiedDate, ClosedDate, and Priority for case records related to a specified contact.</description>
+        <name>caseList</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Case</objectType>
+    </variables>
+    <variables>
+        <description>The contact record for a customer used to look up related case records.</description>
+        <name>contactRecord</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Contact</objectType>
+    </variables>
+</Flow>

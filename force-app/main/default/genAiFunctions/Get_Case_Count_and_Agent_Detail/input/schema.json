@@ -1,0 +1,14 @@
+{
+  "required" : [ "ownerId" ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "ownerId" : {
+      "title" : "ownerId",
+      "description" : "This will receive the owner Id value.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

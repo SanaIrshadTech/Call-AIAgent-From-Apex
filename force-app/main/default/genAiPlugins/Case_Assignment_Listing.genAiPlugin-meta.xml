@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aiPluginUtterances>
+        <developerName>utterance_pleaseprov0</developerName>
+        <language>en_US</language>
+        <masterLabel>utterance_pleaseprov0</masterLabel>
+        <utterance>Please provide list of all the cases assigned to owner.</utterance>
+    </aiPluginUtterances>
+    <canEscalate>false</canEscalate>
+    <description>Handles requests for listing all new cases assigned to a specific owner.</description>
+    <developerName>Case_Assignment_Listing</developerName>
+    <genAiFunctions>
+        <functionName>Get_All_Cases_By_Owner</functionName>
+    </genAiFunctions>
+    <genAiPluginInstructions>
+        <description>Ask the user to provide the specific owner&apos;s name or ID.</description>
+        <developerName>instruction_asktheuser0</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_asktheuser0</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If no new cases are found, inform the user accordingly.</description>
+        <developerName>instruction_ifnonewcas1</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_ifnonewcas1</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>If the owner ID is not provided, ask if the user would like to search by name.</description>
+        <developerName>instruction_iftheowner2</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_iftheowner2</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>When listing the open cases assigned to provided owner, include the case ID, case number, status, priority, and a brief description of each case.</description>
+        <developerName>instruction_whenlistin3</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_whenlistin3</masterLabel>
+    </genAiPluginInstructions>
+    <genAiPluginInstructions>
+        <description>Provide the result with the first line as:
+&apos;Here are the cases.&apos;
+Then, generate the final list in a table format where:
+1- The table has properly aligned rows and columns.
+2- Column names are in ALL CAPITAL LETTERS for clarity.</description>
+        <developerName>instruction_providethe4</developerName>
+        <language>en_US</language>
+        <masterLabel>instruction_providethe4</masterLabel>
+    </genAiPluginInstructions>
+    <language>en_US</language>
+    <masterLabel>Case Assignment Listing</masterLabel>
+    <pluginType>Topic</pluginType>
+    <scope>Your job is only to list all new cases assigned to a specific owner. Do not attempt to handle other types of inquiries or actions.</scope>
+</GenAiPlugin>
