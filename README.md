@@ -10,6 +10,7 @@ Previously, agents could invoke Salesforce Flow or Apex components, but now, **t
 &ensp;🔹 Apex – Developers can leverage agents' topics, actions, and reasoning capabilities beyond the chat box—directly within Apex code using custom agent invocable actions.
 
 &ensp;🔹 Flow – Calling agents in Flow is another significant step in extending their functionality beyond the chat window.
+
 [📖 Read the Salesforce Help Article](https://help.salesforce.com/s/articleView?id=release-notes.rn_einstein_agent_flow_apex.htm&release=254&type=5)
 
 **💡 How It Works**
